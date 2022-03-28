@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# install python
+apt -y install ruby
+gem install lolcat
+apt -y install figlet
+apt -y install dos2unix
+
 rm -f install.sh
 scrip="https://raw.githubusercontent.com/tokssa/SAVAT/master"
 clear
