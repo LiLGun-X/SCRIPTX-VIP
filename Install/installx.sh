@@ -2,7 +2,7 @@
 
 # install python
 apt update
-apt install ruby-full --y
+apt install ruby-full 
 apt install unzip
 wget https://github.com/busyloop/lolcat/archive/master.zip
 unzip master.zip
@@ -47,12 +47,12 @@ clear
               
           
 echo -e "\033[1;31m══════════════════════════════════════════════════\033[0m"
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' ">>>>> โปรดชำระเงินก่อนใช้สคริปท์อัตโนมัติ <<<<<" ; tput sgr0
+ tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' ">>>>> โปรดชำระเงินก่อนใช้สคริปท์อัตโนมัติ <<<<<" ; tput sgr0
 echo -e "\033[1;31m══════════════════════════════════════════════════\033[0m"
 echo ""
-echo -e "\033[1;31m  \033[1;33m     สคริปท์นี้ราคา 200 บาท\033[0m" 
-echo -e "\033[1;31m  \033[1;33m     จัดทำสคริปโดย LiL_Gunx\033[0m" 
-echo -e "\033[1;31m  \033[1;33m     <<<( ใส่รหัสผ่านเพื่อติดตั้ง)>>>\033[0m" 
+echo -e "\033[1;31m  \033[1;33m          สคริปท์นี้ราคา 200 บาท\033[0m" 
+echo -e "\033[1;31m  \033[1;33m          จัดทำสคริปโดย LiL_Gunx\033[0m" 
+echo -e "\033[1;31m  \033[1;33m          <<<( ใส่รหัสผ่านเพื่อติดตั้ง)>>>\033[0m" 
 echo -e "\033[1;31m══════════════════════════════════════════════════\033[0m"
 	echo ""
 read -p "โปรดใส่รหัสสำหรับติดตั้ง:" passwds
