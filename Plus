@@ -96,7 +96,7 @@ fun_attlist () {
 	cp /etc/ssh/sshd_config /etc/ssh/sshd_back
 	echo "/bin/menu" > /bin/h && chmod +x /bin/h
 	rm versao*; wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/SSHPLUS-MANAGER-FREE/master/versao
-	echo "apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/GunGZN/SxG/main/Plus; chmod 777 Plus; ./Plus" > /bin/sshplus && chmod +x /bin/sshplus
+	echo "apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/LiLGun-X/SCRIPTX-VIP/main/Plus; chmod 777 Plus; ./Plus" > /bin/sshplus && chmod +x /bin/sshplus
 }
 fun_bar 'fun_attlist'
 clear
