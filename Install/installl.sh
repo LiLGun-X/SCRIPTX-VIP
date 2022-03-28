@@ -1,4 +1,21 @@
- text='ffffff'>
+#!/usr/bin/env bash
+
+# Functions
+ok() {
+    echo -e '\e[32m'$1'\e[m';
+}
+
+die() {
+    echo -e '\e[1;35m'$1'\e[m';
+}
+
+des() {
+    echo -e '\e[1;31m'$1'\e[m'; exit 1;
+}
+
+
+
+#<BODY text='ffffff'>
 kguza="https://kguza.net/scrip/u-d/openvpn"
 
 #OS
