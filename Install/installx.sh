@@ -42,7 +42,7 @@ clear
 
 	echo ""
 read -p "โปรดใส่รหัสสำหรับติดตั้ง:" passwds
-wget -q -O /usr/bin/pass https://raw.githubusercontent.com/LiLGun-X/D-script-1.0/master/pass.txt
+wget -q -O /usr/bin/pass https://raw.githubusercontent.com/LiLGun-X/SCRIPTX-VIP/main/Install/pass.txt
 if ! grep -w -q $passwds /usr/bin/pass; then
 clear
 echo ""
