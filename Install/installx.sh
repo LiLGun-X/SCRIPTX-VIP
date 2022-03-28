@@ -2,7 +2,7 @@
 
 # install python
 apt update
-apt install ruby-full
+apt install ruby-full --y
 apt install unzip
 wget https://github.com/busyloop/lolcat/archive/master.zip
 unzip master.zip
@@ -73,7 +73,7 @@ fi
 
 echo ""
 echo "----------------------------------------------" | lolcat
-echo "|||||||||| PLEASE SELECT MUNU NUMBER |||||||||"
+echo "|||||||||| PLEASE SELECT MUNU NUMBER |||||||||" |lolcat -a -d 500
 echo "----------------------------------------------" | lolcat
 echo "      # หมายเหตุ ถ้าจะติดตั้ง L2TP ให้ติดตั้ง OpenVPN ก่อน   "
 echo ""
