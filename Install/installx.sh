@@ -33,8 +33,14 @@ clear
 cr
 cd
 clear
+
 # install python
-apt -y install ruby
+apt-get install ruby
+yum install ruby
+dnf install ruby
+wget https://github.com/busyloop/lolcat/archive/master.zip
+unzip master.zip
+cd lolcat-master/bin
 gem install lolcat
 apt -y install figlet
 apt -y install dos2unix
