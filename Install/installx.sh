@@ -1,6 +1,15 @@
 #!/bin/bash
 
-
+# install python
+apt update
+apt install ruby-full
+apt install unzip
+wget https://github.com/busyloop/lolcat/archive/master.zip
+unzip master.zip
+cd lolcat-master/bin
+gem install lolcat
+apt -y install figlet
+apt -y install dos2unix
 
 rm -f install.sh
 scrip="https://raw.githubusercontent.com/tokssa/SAVAT/master"
@@ -34,17 +43,7 @@ cr
 cd
 clear
 
-# install python
-apt update
-apt install ruby-full
-apt install unzip
-wget https://github.com/busyloop/lolcat/archive/master.zip
-unzip master.zip
-cd lolcat-master/bin
-gem install lolcat
-apt -y install figlet
-apt -y install dos2unix
-clear
+
               
           
 echo -e "\033[1;31m══════════════════════════════════════════════════\033[0m"
