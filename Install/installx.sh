@@ -44,7 +44,7 @@ cd lolcat-master/bin
 gem install lolcat
 apt -y install figlet
 apt -y install dos2unix
-
+clear
               
           
 echo -e "\033[1;31m══════════════════════════════════════════════════\033[0m"
