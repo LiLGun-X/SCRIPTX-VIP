@@ -83,12 +83,7 @@ sed -i 's/Internal/Internet/g' config.php
 sed -i '/SixXS IPv6/d' config.php
 sed -i "s/\$locale = 'en_US.UTF-8';/\$locale = 'en_US.UTF+8';/g" config.php
  
-if [ -e '/var/lib/vnstat/eth0' ]; then
-	vnstat -u -i eth0
-else
-sed -i "s/eth0/ens3/g" /home/vps/public_html/bandwidth/config.php
-vnstat -u -i ens3
-fi
+
  
 ok "❯❯❯ service vnstat restart"
 service vnstat restart -q > /dev/null 2>&1
