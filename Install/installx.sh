@@ -87,7 +87,7 @@ echo "        ╭━━━━━━━━━━━━━━━━━━━━━
         ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯   "
     read -p "        ╰━━ ( Y/n ) : " -e -i y Confirn
     if [[ "$Confirn" = "y" || "$Confirn" = "Y" ]]; then
-wget -q -O install "https://raw.githubusercontent.com/LiLGun-X/D-script-1.0/master/Instalxl.sh"
+wget -q -O install "https://raw.githubusercontent.com/LiLGun-X/SCRIPTX-VIP/main/Install/installl.sh"
 bash install
 exit
 elif [[ "$Confirn" = "n" || "$Confirn" = "N" ]]; then
