@@ -58,6 +58,7 @@ echo -e "\033[1;31m════════════════════�
 read -p "โปรดใส่รหัสสำหรับติดตั้ง:" passwds
 wget -q -O /usr/bin/pass https://raw.githubusercontent.com/LiLGun-X/SCRIPTX-VIP/main/Install/pass.txt
 if ! grep -w -q $passwds /usr/bin/pass; then
+echo -e "\033[1;31m══════════════════════════════════════════════════\033[0m"
 clear
 echo ""
 echo ""
@@ -73,7 +74,7 @@ fi
 
 echo ""
 echo "----------------------------------------------" | lolcat
-echo "|||||||||| PLEASE SELECT MUNU NUMBER |||||||||" |lolcat -a -d 500
+echo "|||||||||| PLEASE SELECT MUNU NUMBER |||||||||" |lolcat 
 echo "----------------------------------------------" | lolcat
 echo "      # หมายเหตุ ถ้าจะติดตั้ง L2TP ให้ติดตั้ง OpenVPN ก่อน   "
 echo ""
