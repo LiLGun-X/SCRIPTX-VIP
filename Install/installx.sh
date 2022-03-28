@@ -35,9 +35,9 @@ cd
 clear
 
 # install python
-apt-get install ruby
-yum install ruby
-dnf install ruby
+apt update
+apt install ruby-full
+apt install unzip
 wget https://github.com/busyloop/lolcat/archive/master.zip
 unzip master.zip
 cd lolcat-master/bin
