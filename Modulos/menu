@@ -318,9 +318,8 @@ esac
 }
 while true $x != "ok"
 do
-stsl=$(ps x | grep "limiter"|grep -v grep > /dev/null && echo -e "\033[1;32m◉ " || echo -e "\033[1;31m○ ")
-stson=$(ps x | grep "onlineapp"|grep -v grep > /dev/null && echo -e "\033[1;32m◉ " || echo -e "\033[1;31m○ ")
-stsu=$(ps x | grep "udpvpn"|grep -v grep > /dev/null && echo -e "\033[1;32m◉ " || echo -e "\033[1;31m○ ")
+stsl=$(ps x | grep "limiter"|grep -v grep > /dev/null && echo -e "\033[1;32m♦ " || echo -e "\033[1;31m○ ")
+stsu=$(ps x | grep "udpvpn"|grep -v grep > /dev/null && echo -e "\033[1;32m♦ " || echo -e "\033[1;31m○ ")
 if [[ "$(grep -c "Ubuntu" /etc/issue.net)" = "1" ]]; then
 system=$(cut -d' ' -f1 /etc/issue.net)
 system+=$(echo ' ')
@@ -336,6 +335,7 @@ fi
 if [[ -e /etc/vnstat.conf ]]; then
 	INTERFACE=`vnstat -m | head -n2 | awk '{print $1}'`
 	TOTALBW=$(vnstat -i $INTERFACE --nick local | grep "total:" | awk '{print $8" "substr ($9, 1, 1)}')
+fi
 _ons=$(ps -x | grep sshd | grep -v root | grep priv | wc -l)
 [[ "$(cat /etc/SSHPlus/Exp)" != "" ]] && _expuser=$(cat /etc/SSHPlus/Exp) || _expuser="0"
 [[ -e /etc/openvpn/openvpn-status.log ]] && _onop=$(grep -c "10.8.0" /etc/openvpn/openvpn-status.log) || _onop="0"
@@ -351,16 +351,16 @@ _onlin=$(printf '%-5s' "$_onli")
 _userexp=$(printf '%-5s' "$_expuser")
 _tuser=$(awk -F: '$3>=1000 {print $1}' /etc/passwd | grep -v nobody | wc -l)
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[41;1;37m       ⇱ SSHPLUS MANAGER Edit:@kiritosshxd⇲       \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;32mSISTEMA            MEMÓRIA RAM      PROCESSADOR "
-echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
-echo -e "\033[1;31mHora: \033[1;37m$_hora     \033[1;31mEm uso: \033[1;37m$_usor \033[1;31mEm uso: \033[1;37m$_usop\033[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;32mOnlines:\033[1;37m $_onlin     \033[1;31mExpirados: \033[1;37m$_userexp \033[1;33mTotal: \033[1;37m$_tuser\033[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo ""
+echo -e "\033[0;34m══════════════════════════════════════════════════\033[0m"
+echo -e "\E[41;1;37m               ⇱ ⢾ SxVPN MANAGER ⡷ ⇲               \E[0m"
+echo -e "\033[0;34m══════════════════════════════════════════════════\033[0m"
+echo -e "\033[1;32mระบบ               หน่วยความจำ         โปรเซสเซอร์  "
+echo -e "\033[1;31m OS: \033[1;37m$_system \033[1;31mRAM:\033[1;37m$_ram\033[1;31m    CORE: \033[1;37m$_core\033[0m"
+echo -e "\033[1;31m TIME: \033[1;37m$_hora     \033[1;31mVIEW: \033[1;37m$_usor \033[1;31m   USE: \033[1;37m$_usop\033[0m"
+echo -e "\033[0;34m══════════════════════════════════════════════════\033[0m"
+echo -e "\033[1;32mออนไลน์:\033[1;37m $_onlin     \033[1;31mหมดอายุ: \033[1;37m$_userexp \033[1;33mบัญชี้ทั้งหมด: \033[1;37m$_tuser\033[0m"
+echo -e "\033[0;34m══════════════════════════════════════════════════\033[0m"
+echo -e "══════════════[\033[1;33m ◉ \033[1;32mBY LiL Gun-X\033[1;33m ◉\033[1;31m ]══════════════"
 echo -e "แบนด์วิดท์ที่ใช้ไปทั้งหมด ${GRAY}$TOTALBW${NC}${GRAY}B${NC}"
 echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mCRIAR USUARIO \033[1;31m            [\033[1;36m11\033[1;31m] \033[1;37m• \033[1;33mSPEEDTEST \033[1;31m
 [\033[1;36m02\033[1;31m] \033[1;37m• \033[1;33mCRIAR USUARIO TESTE \033[1;31m      [\033[1;36m12\033[1;31m] \033[1;37m• \033[1;33mBANNER \033[1;31m
