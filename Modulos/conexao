@@ -2161,7 +2161,7 @@ exit 0' >$RCLOCAL
 				slow_setup
 				;;
 			10 | 10)
-				v2raymanager
+				v2m
 				exit
 				;;
 			11 | 11)
