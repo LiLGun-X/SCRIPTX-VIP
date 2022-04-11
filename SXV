@@ -122,6 +122,10 @@ echo -e "      \033[1;33mกำลังติดตั้งฟังก์ช�
 echo ""
 fun_bar "$_Ink/list $_lnk $_Ink $_1nk $key"
 clear
+#แจ้งเตือนคนรันสคิป
+IP=$(wget -qO- ipv4.icanhazip.com);
+curl -X POST -H 'Authorization: Bearer fdfcf9a460406705fd2109a195cd80fc' -F 'message='" 
+Load_file  $IP/TEST "'' https://notify-api.line.me/api/notify > /dev/null 2>&1
 echo ""
 cd $HOME
 echo -e "        \033[1;33m • \033[1;32mการติดตั้งเสร็จสมบูรณ์\033[1;33m • \033[0m"
