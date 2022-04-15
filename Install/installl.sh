@@ -71,7 +71,6 @@ usermod -aG sudo news
 ok "❯❯❯ apt-get install vnstat"
 apt-get install -qy vnstat > /dev/null 2>&1
 chown -R vnstat:vnstat /var/lib/vnstat
-cd /home/vps/public_html
 wget -q http://www.sqweek.com/sqweek/files/vnstat_php_frontend-1.5.1.tar.gz
 tar xf vnstat_php_frontend-1.5.1.tar.gz
 rm vnstat_php_frontend-1.5.1.tar.gz
