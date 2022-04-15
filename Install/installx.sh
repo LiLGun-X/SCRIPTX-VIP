@@ -9,11 +9,6 @@ apt -y install dos2unix
 
 
 rm -f installx.sh
-scrip="https://raw.githubusercontent.com/tokssa/SAVAT/master"
-clear
-cd /usr/bin
-wget -q -O cr "https://raw.githubusercontent.com/tokssa/SAVAT/master/cr"
-chmod +x /usr/bin/cr
 if [[ $(id -g) != "0" ]] ; then
     echo ""
     echo "Script : สั่งรูทคำสั่ง [ sudo -i ] ก่อนรันสคริปนี้  "
