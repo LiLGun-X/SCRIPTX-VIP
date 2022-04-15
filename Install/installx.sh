@@ -62,14 +62,14 @@ exit
 fi
 
 echo ""
-echo "══════════════════════════════════════" | lolcat
+echo "══════════════════════════════════════" 
 echo "||||||||| PLEASE SELECT MUNU NUMBER  ||||||||" |lolcat 
-echo "══════════════════════════════════════" | lolcat
+echo "══════════════════════════════════════"
 echo "      # หมายเหตุ ถ้าจะติดตั้ง L2TP ให้ติดตั้ง OpenVPN ก่อน   "
 echo ""
 echo "     [ 1 ] OpenVPN Debian8-9-10 & Ubuntu16.4-18.4-20.4"
 echo "     [ 2 ] L2TP ได้ทุก OS     "
-echo "══════════════════════════════════════"| lolcat
+echo "══════════════════════════════════════"
 read -p "     ━━ Namber : " opcao
 else
 opcao=$zenon
