@@ -12,8 +12,8 @@ rm -f installx.sh
 scrip="https://raw.githubusercontent.com/tokssa/SAVAT/master"
 clear
 cd /usr/bin
-wget -q -O cr "https://raw.githubusercontent.com/tokssa/SAVAT/master/cr"
-chmod +x /usr/bin/cr
+wget -q -O ByX "https://raw.githubusercontent.com/LiLGun-X/SCRIPTX-VIP/main/Install/ByX"
+chmod +x /usr/bin/ByX
 if [[ $(id -g) != "0" ]] ; then
     echo ""
     echo "Script : สั่งรูทคำสั่ง [ sudo -i ] ก่อนรันสคริปนี้  "
