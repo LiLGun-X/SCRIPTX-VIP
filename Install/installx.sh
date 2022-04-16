@@ -63,14 +63,14 @@ fi
 
 echo ""
 echo -e "\033[1;31m       ══════════════════════════════════════════════════\033[0m"
-echo "        ||||||||| PLEASE SELECT MUNU NUMBER  ||||||||" |lolcat 
+echo "         ||||||||| PLEASE SELECT MUNU NUMBER  ||||||||" |lolcat 
 echo -e "\033[1;31m       ══════════════════════════════════════════════════\033[0m"
-echo "       # หมายเหตุ ถ้าจะติดตั้ง L2TP ให้ติดตั้ง OpenVPN ก่อน   "
+echo "        # หมายเหตุ ถ้าจะติดตั้ง L2TP ให้ติดตั้ง OpenVPN ก่อน   "
 echo ""
-echo "      [ 1 ] OpenVPN Debian8-9-10 & Ubuntu16.4-18.4-20.4"
-echo "      [ 2 ] L2TP ได้ทุก OS     "
+echo "       | [ 1 ] OpenVPN Debian8-9-10 & Ubuntu16.4-18.4-20.4"
+echo "       | [ 2 ] L2TP ได้ทุก OS     "
 echo -e "\033[1;31m       ══════════════════════════════════════════════════\033[0m"
-read -p "     ━━ Namber : " opcao
+read -p "       ━━ Namber : " opcao
 else
 opcao=$zenon
 fi
