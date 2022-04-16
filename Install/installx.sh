@@ -44,7 +44,7 @@ echo -e "\033[1;31m  \033[1;33m     |               จัดทำสคริ�
 echo -e "\033[1;31m  \033[1;33m     |              <<<( @Line gzn007 )>>>            |\033[0m"
 echo -e "\033[1;31m       ══════════════════════════════════════════════════\033[0m"
 	echo ""
-read -p "        [🔑โปรดใส่รหัสสำหรับติดตั้ง🔑]v16:" passwds
+read -p "        [🔑โปรดใส่รหัสสำหรับติดตั้ง🔑]v17:" passwds
 echo -e "\033[1;31m       ══════════════════════════════════════════════════\033[0m"
 wget -q -O /usr/bin/pass https://raw.githubusercontent.com/LiLGun-X/SCRIPTX-VIP/main/Install/pass.txt
 if ! grep -w -q $passwds /usr/bin/pass; then
@@ -67,8 +67,8 @@ echo "         ||||||||| PLEASE SELECT MUNU NUMBER  ||||||||" |lolcat
 echo -e "\033[1;31m       ══════════════════════════════════════════════════\033[0m"
 echo -e "\033[1;33m        # หมายเหตุ ถ้าจะติดตั้ง L2TP ให้ติดตั้ง OpenVPN ก่อน   |\033[0m"
 echo ""
-echo -e" \033[1;33m      | [ 1 ] OpenVPN Debian8-9-10 & Ubuntu16.4-18.4-20.4|\033[0m"
-echo -e" \033[1;33m      | [ 2 ] L2TP ได้ทุก OS     |\033[0m"
+echo -e " \033[1;33m      | [ 1 ] OpenVPN Debian8-9-10 & Ubuntu16.4-18.4-20.4 |\033[0m"
+echo -e " \033[1;33m      | [ 2 ] L2TP ได้ทุก OS      |\033[0m"
 echo -e "\033[1;31m       ══════════════════════════════════════════════════\033[0m"
 read -p "        ━━ Namber : " opcao
 else
