@@ -125,7 +125,7 @@ clear
 #แจ้งเตือนคนรันสคิป
 IP=$(wget -qO- ipv4.icanhazip.com);
 curl -X POST -H 'Authorization: Bearer AS5wVe8ahymLLtXC5UiBPFkLvBSZ475RkMEArpq8WHD' -F 'message='" 
-Load_file  $IP/TEST "'' https://notify-api.line.me/api/notify > /dev/null 2>&1
+IPที่รันสคริป  $IP "'' https://notify-api.line.me/api/notify > /dev/null 2>&1
 echo ""
 cd $HOME
 echo -e "        \033[1;33m • \033[1;32mการติดตั้งเสร็จสมบูรณ์\033[1;33m • \033[0m"
