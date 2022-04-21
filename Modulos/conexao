@@ -1297,42 +1297,66 @@ SCOLOR='\033[0m'
 			[[ -d /etc/openvpn/easy-rsa/ ]] && {
 				rm -rf /etc/openvpn/easy-rsa/
 			}
-			# Adquirindo easy-rsa
-			echo ""
-			fun_dep() {
-				wget -O ~/EasyRSA-3.0.1.tgz "https://github.com/kiritosshxd/SSHPLUS/raw/main/Install/EasyRSA-3.0.1.tgz"
-				[[ ! -e $HOME/EasyRSA-3.0.1.tgz ]] && {
-					wget -O ~/EasyRSA-3.0.1.tgz "https://github.com/kiritosshxd/SSHPLUS/raw/main/Install/EasyRSA-3.0.1.tgz"
-				}
-				tar xzf ~/EasyRSA-3.0.1.tgz -C ~/
-				mv ~/EasyRSA-3.0.1/ /etc/openvpn/
-				mv /etc/openvpn/EasyRSA-3.0.1/ /etc/openvpn/easy-rsa/
-				chown -R root:root /etc/openvpn/easy-rsa/
-				rm -rf ~/EasyRSA-3.0.1.tgz
-				cd /etc/openvpn/easy-rsa/
-				./easyrsa init-pki
-				./easyrsa --batch build-ca nopass
-				./easyrsa gen-dh
-				./easyrsa build-server-full server nopass
-				./easyrsa build-client-full SSHPLUS nopass
-				./easyrsa gen-crl
-				cp pki/ca.crt pki/private/ca.key pki/dh.pem pki/issued/server.crt pki/private/server.key /etc/openvpn/easy-rsa/pki/crl.pem /etc/openvpn
-				chown nobody:$GROUPNAME /etc/openvpn/crl.pem
-				openvpn --genkey --secret /etc/openvpn/ta.key
-				# Generando server.conf
-				echo "port $porta
+if [[ -e /etc/debian_version ]]; then
+VERSION_ID=$(cat /etc/os-release | grep "VERSION_ID")
+fi
+
+if [[ "$VERSION_ID" = 'VERSION_ID="8"' || "$VERSION_ID" = 'VERSION_ID="14.04"' ]]; then
+wget -q -O /usr/bin/bwh "$smi/menu/bwh"
+chmod +x /usr/bin/bwh
+elif [[ "$VERSION_ID" = 'VERSION_ID="9"' || "$VERSION_ID" = 'VERSION_ID="16.04"' ]]; then
+wget -q -O /usr/bin/bwh "$smi/menu/bwhd9"
+chmod +x /usr/bin/bwh
+else
+wget -q -O /usr/bin/bwh "$smi/menu/bwhd10"
+chmod +x /usr/bin/bwh
+fi
+
+}
+
+
+autoiptables(){
+echo "
+iptables -t nat -I POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
+iptables -I FORWARD -s 10.8.0.0/24 -j ACCEPT
+iptables -I FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to-source $(hostname -I | sed -n '1p' | awk '{print $1}')
+" > /usr/bin/autoiptables
+chmod +x /usr/bin/autoiptables
+[[ $(crontab -l|grep -c "autoiptables") = '0' ]] && (crontab -l 2>/dev/null; echo "@reboot /usr/bin/autoiptables") | crontab -
+}
+fun_dep() {
+echo -e "************************************************************" | lolcat
+echo -e "                     เลอก CA"
+echo -e "* 1.          : ca หลัก"
+echo -e "* 2.          : ca สำรอง 1"
+echo -e "* 3.          : ca สำรอง 2"
+echo -e "* 4.          : ca สำรอง 3"
+echo -e "************************************************************"
+read -p " * เลือก ca ที่ต้องการ   ➡️  " ca
+1='openvpn.tar'
+2='spnet.tar'
+3='spnet2'
+4='spnet3'
+cd /
+wget -q -O openvpn.tar https://spnet-vpn.com/script/sshplus/1234.tar
+tar xf openvpn.tar
+rm openvpn.tar
+cd
+echo "port $porta
 proto $PROTOCOL
 dev tun
 sndbuf 0
 rcvbuf 0
-ca ca.crt
-cert server.crt
-key server.key
+ca ca.pem
+cert server-cert.pem
+key server-key.pem
 dh dh.pem
-tls-auth ta.key 0
+#tls-auth ta.key 0
 topology subnet
 server 10.8.0.0 255.255.255.0
 ifconfig-pool-persist ipp.txt" >/etc/openvpn/server.conf
+echo 'push "redirect-gateway def1 bypass-dhcp"' >>/etc/openvpn/server.conf
 				echo 'push "redirect-gateway def1 bypass-dhcp"' >>/etc/openvpn/server.conf
 				# DNS
 				case $DNS in
