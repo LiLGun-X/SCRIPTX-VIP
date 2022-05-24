@@ -15,8 +15,7 @@ des() {
 
 
 
-#<BODY text='ffffff'>
-kguza="https://kguza.net/scrip/u-d/openvpn"
+
 
 #OS
 if [[ -e /etc/debian_version ]]; then
@@ -103,34 +102,14 @@ service dropbear restart > /dev/null 2>&1
 country=ID
 state=Thailand
 locality=Tebet
-organization=Kguzaza
+organization=LiL GunX
 organizationalunit=IT
-commonname=kguza.online
-email=wullopkk@gmail.com
+commonname=@Line gzn007
+email=lilgunx.1@gmail.com
 
 
-# install stunnel
-die "❯❯❯ apt-get install ssl"
-apt-get install -qy stunnel4 > /dev/null 2>&1
-cat > /etc/stunnel/stunnel.conf <<-END
-cert = /etc/stunnel/stunnel.pem
-client = no
-socket = a:SO_REUSEADDR=1
-socket = l:TCP_NODELAY=1
-socket = r:TCP_NODELAY=1
-[dropbear]
-accept = 444
-connect = 127.0.0.1:110
-#[openvpn]
-#accept = 465
-#connect = 127.0.0.1:443
-#[squid3]
-#accept = 443
-#connect = 127.0.0.1:8080
-END
 
-#membuat sertifikat
-cat /etc/openvpn/client-key.pem /etc/openvpn/client-cert.pem > /etc/stunnel/stunnel.pem
+
 
 #konfigurasi stunnel
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
