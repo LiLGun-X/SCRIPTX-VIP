@@ -522,7 +522,6 @@ wget -O tjr "https://javatek.000webhostapp.com/renew-tr.sh"
 wget -O cert "https://javatek.000webhostapp.com/cert.sh"
 wget -O port-ssl "https://javatek.000webhostapp.com/port-ssl.sh"
 wget -O port-tr "https://javatek.000webhostapp.com/port-tr.sh"
-wget -O port-squid "https://javatek.000webhostapp.com/port-squid.sh"
 wget -O port-ws "https://javatek.000webhostapp.com/port-ws.sh"
 wget -O port-vless "https://javatek.000webhostapp.com/port-vless.sh"
 chmod +x vr
@@ -538,3 +537,7 @@ chmod +x vrr
 chmod +x vsr
 chmod +x tjr
 chmod +x cert
+chmod +x port-ssl
+chmod +x port-tr
+chmod +x port-ws
+chmod +x port-vless
