@@ -520,6 +520,11 @@ wget -O vrr "https://javatek.000webhostapp.com/renew-ws.sh"
 wget -O vsr "https://javatek.000webhostapp.com/renew-vless.sh"
 wget -O tjr "https://javatek.000webhostapp.com/renew-tr.sh"
 wget -O cert "https://javatek.000webhostapp.com/cert.sh"
+wget -O port-ssl "https://javatek.000webhostapp.com/port-ssl.sh"
+wget -O port-tr "https://javatek.000webhostapp.com/port-tr.sh"
+wget -O port-squid "https://javatek.000webhostapp.com/port-squid.sh"
+wget -O port-ws "https://javatek.000webhostapp.com/port-ws.sh"
+wget -O port-vless "https://javatek.000webhostapp.com/port-vless.sh"
 chmod +x vr
 chmod +x vs
 chmod +x tj
