@@ -104,11 +104,6 @@ echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 /etc/init.d/dropbear restart
 
-# install squid
-cd
-apt -y install squid3
-wget -O /etc/squid/squid.conf "https://github.com/javakeisha/my/raw/main/squid3.conf"
-sed -i $MYIP2 /etc/squid/squid.conf
 
 # setting vnstat
 apt -y install vnstat
@@ -151,15 +146,6 @@ connect = 127.0.0.1:1194
 
 END
 
-# make a certificate
-openssl genrsa -out key.pem 2048
-openssl req -new -x509 -key key.pem -out cert.pem -days 1095 \
--subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
-cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
-
-# konfigurasi stunnel
-sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
-/etc/init.d/stunnel4 restart
 
 cd
 #install sslh
@@ -181,8 +167,6 @@ sudo make install
 
 END
 
-#OpenVPN
-wget https://javatek.000webhostapp.com/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
 # install fail2ban
 apt -y install fail2ban
@@ -243,7 +227,7 @@ apt -y install dos2unix
 
 # download script
 cd /usr/bin
-wget -O menu "https://javatek.000webhostapp.com/menu.sh"
+wget -O mdv "https://javatek.000webhostapp.com/menu.sh"
 wget -O new "https://javatek.000webhostapp.com/usernew.sh"
 wget -O del "https://javatek.000webhostapp.com/hapus.sh"
 wget -O user "https://javatek.000webhostapp.com/member.sh"
@@ -268,7 +252,7 @@ wget -O port-vless "https://javatek.000webhostapp.com/port-vless.sh"
 wget -O web "https://javatek.000webhostapp.com/webmin.sh"
 wget -O backup "https://javatek.000webhostapp.com/backupnginx.sh"
 wget -O restore "https://javatek.000webhostapp.com/restore.sh"
-chmod +x menu
+chmod +x mdv
 chmod +x new
 chmod +x del
 chmod +x user
@@ -306,14 +290,12 @@ apt autoremove -y
 cd
 chown -R www-data:www-data /home/vps/public_html
 /etc/init.d/nginx restart
-/etc/init.d/openvpn restart
 /etc/init.d/cron restart
 /etc/init.d/ssh restart
 /etc/init.d/dropbear restart
 /etc/init.d/fail2ban restart
 /etc/init.d/stunnel4 restart
 /etc/init.d/vnstat restart
-/etc/init.d/squid restart
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500
